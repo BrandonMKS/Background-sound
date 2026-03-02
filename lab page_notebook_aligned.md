@@ -1063,34 +1063,4 @@ else:
 print("=" * 60)
 ```
 
-## Notebook Conclusion Cell (Notebook Cell 19)
 
-The notebook ends with an auto-formatted conclusion block:
-
-```python
-from IPython.display import display, Markdown
-
-display(Markdown(f"""
----
-# Conclusion
-
-**H1 — Does the NN outperform the tuned Ridge baseline?** Yes. On 
-the **15% test set** the neural network achieves a substantially higher
-R2_log (**{hold_nn_metrics['R2_log']:.4f}** vs **{hold_ridge_metrics['R2_log']:.4f}**) and roughly halves MAPE (**{hold_nn_metrics["MAPE(%)"]:.4f}%** vs **{hold_ridge_metrics["MAPE(%)"]:.4f}%**), 
-confirming that a properly tuned NN captures non-linear patterns in trip duration 
-that a linear model cannot.
-
-**RQ1 — How well can a neural network predict trip duration from tabular features?** 
-The best NN (selected via 20 validation-only trials with early stopping) 
-reaches an R2_log of **{hold_nn_metrics['R2_log']:.4f}** and MAPE **{hold_nn_metrics["MAPE(%)"]:.4f}%** on the test set. 
-While original-scale R2 is negative for both models (due to the heavy-tailed 
-distribution of trip duration), the log-space metrics and MAPE demonstrate meaningful
-predictive power.
-
-**RQ2 — Which features contribute most?**
-Permutation importance (5 repeats, validation set) identifies `haversine_km` as the 
-single most important predictor for both models. The NN additionally extracts signal
-from `delta_lat`, `delta_lon`, `vendor_id`, and cyclical hour encodings, while 
-`store_and_fwd_flag` and `passenger_count` contribute negligibly.
-"""))
-```
