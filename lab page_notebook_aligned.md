@@ -494,7 +494,7 @@ MLPs are a standard first-choice neural baseline for tabular regression because 
 
 ---
 
-## 🏋️ Neural Network Training Procedure
+# 🏋️ Neural Network Training Procedure
 
 ## Data Interface (Mini-batches)
 
